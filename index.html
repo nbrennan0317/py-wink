@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Wink</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+<script type="text/javascript">
+$( document ).ready(function() {
+test=function(){
+$.getJSON( "/robots.json", function( data ) {
+console.log(data);
+$.each( data, function( key, value ){
+    console.log(value)
+});
+});
+$.getJSON( "/scenes.json", function( data ) {
+console.log("scenes");
+console.log(data);
+$.each( data, function( key, value ){
+    console.log(value)
+});
+});
+$.getJSON( "/devices.json", function( data ) {
+console.log("devices");
+console.log(data);
+$.each( data, function( key, value ){
+    console.log(value)
+});
+});
+$.getJSON( "/channels.json", function( data ) {
+console.log("channels");
+console.log(data);
+$.each( data, function( key, value ){
+    console.log(value)
+});
+});
+$.getJSON( "/profile.json", function( data ) {
+console.log("profile");
+console.log(data);
+$.each( data, function( key, value ){
+    console.log(value)
+});
+});
+$.getJSON( "/services.json", function( data ) {
+console.log("services");
+console.log(data);
+$.each( data, function( key, value ){
+    console.log(value)
+});
+});
+$.getJSON( "/icons.json", function( data ) {
+console.log("icons");
+console.log(data);
+$.each( data, function( key, value ){
+    console.log(value)
+});
+});
+};
+
+$.getScript("/all.json", function(data){
+//console.log(smarts);
+//$.each( smarts['devices'], function( key, value ){
+    $('#js').text(JSON.stringify(smarts.devices));
+//});
+});
+});
+</script>
+    </head>
+    <body>
+
+        <div class="header-container">
+            <header class="wrapper clearfix">
+                
+            </header>
+        </div>
+
+        <div class="main-container">
+            <div class="main wrapper clearfix" id="js">
+
+            </div> <!-- #main -->
+        </div> <!-- #main-container -->
+
+        <div class="footer-container">
+            <footer class="wrapper">
+                <h3>footer</h3>
+            </footer>
+        </div>
+    </body>
+</html>
