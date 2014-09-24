@@ -35,6 +35,7 @@ class Wink(object):
         """
 
         self.debug = debug
+        #self.debug = True
 
         self.auth_object = auth_object
         self.auth = self.auth_object.load()
@@ -111,7 +112,7 @@ class Wink(object):
                     expected,
                     resp["status"],
                     method,
-                    path,
+                    path
                 )
             )
 
@@ -144,6 +145,9 @@ class Wink(object):
     def get_devices(self):
         return self._get("/users/me/wink_devices")
 
+    def get_robots(self):
+        return self._get("/users/me/robots")
+
     def get_services(self):
         return self._get("/users/me/linked_services")
 
@@ -155,6 +159,17 @@ class Wink(object):
 
     def get_channels(self):
         return self._get("/channels")
+
+    def get_test(self):
+        return self._get("/light_bulbs/34856")
+    def can_test(self):
+        return self._put("/light_bulbs/34856", "{\n    'desired_state': {'brightness': 1.0,'identify_mode': False,'powered': True}}")
+
+    def cantina_on(self):
+        return self._post("/scenes/121925/activate", "")
+
+    def get_scenes(self):
+        return self._get("/users/me/scenes")
 
     def get_inbound_channels(self):
         return [x for x in self.get_channels() if x["inbound"]]
